@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "chloecorfmat/articles-details",
+	"version": "0.1.0",
+	"title": "1.0 Détails de l'article",
+	"category": "chloecorfmat-articles",
+	"icon": "smiley",
+	"description": "Mon premier blog gutenberg",
+	"attributes": {
+	},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "chloecorfmat",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

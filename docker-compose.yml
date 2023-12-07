@@ -1,0 +1,52 @@
+version: '3.1'
+
+services:
+
+  wordpress:
+    image: wordpress:6.4.1-php8.2-apache
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: root
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DEBUG: 1
+    volumes:
+      - ./wordpress:/var/www/html
+
+  wp-cli:
+    image: wordpress:cli-2.9.0-php8.2
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: root
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DEBUG: 1
+    command: tail -f /dev/null
+    volumes:
+      - ./wordpress:/var/www/html
+
+  node:
+    image: node:16
+    volumes:
+      - ./wordpress:/usr/app
+    restart: on-failure
+    entrypoint: "tail -f /dev/null"
+    working_dir: "/usr/app"
+
+  db:
+    image: mariadb:11.1.2
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
