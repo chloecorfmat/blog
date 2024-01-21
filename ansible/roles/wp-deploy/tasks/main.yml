@@ -1,0 +1,44 @@
+- debug:
+    msg:
+      - "Start WP deploy"
+
+# Install on server unzip, pip and with pip install docker and docker-compose
+
+- name: "Create deploy directories"
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+  loop:
+    - "{{ deploy_directory }}"
+
+- name: "Create shared directory"
+  file:
+    path: "{{ item }}"
+    state: directory
+    mode: '0755'
+    owner: "www-data"
+    group: "www-data"
+  loop:
+    - "{{ deploy_directory }}/shared"
+
+- name: "Copy and unzip archive"
+  unarchive:
+    dest: "{{ deploy_directory }}"
+    src: "{{ build_directory }}/build-{{ tag | replace('/', '_') }}.zip"
+    mode: "0755"
+    owner: "www-data"
+    group: "www-data"
+  become: true
+
+- name: Stop docker
+  community.docker.docker_compose:
+    project_src: "{{ deploy_directory }}/build"
+    files: docker-compose.prod.yml
+    state: absent
+
+- name: Launch docker
+  community.docker.docker_compose:
+    project_src: "{{ deploy_directory }}/build"
+    files: docker-compose.prod.yml
+    build: true

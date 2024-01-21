@@ -1,0 +1,43 @@
+- debug:
+    msg:
+      - "Start WP build"
+
+- name: "Remove build directory"
+  file:
+    path: "{{ build_directory }}"
+    state: absent
+
+- name: "Create build directory"
+  file:
+    path: "{{ build_directory }}"
+    state: directory
+    mode: '0755'
+
+- name: Clone repository
+  git:
+    repo: "{{ git_project }}"
+    dest: "{{ build_directory }}"
+    version: "{{ tag }}"
+
+- name: Creating a file with content
+  copy:
+    dest: "{{ build_directory }}/.env"
+    content: |
+      COMPOSE_PROJECT_NAME="build"
+
+- name: Remove unused files
+  file:
+    path: "{{ build_directory }}/{{ item }}"
+    state: absent
+  loop:
+    - .git/
+    - ansible/
+    - .env
+    - README.md
+    - .gitignore
+
+- name: Create a zip archive of build
+  community.general.archive:
+    path: "{{ build_directory }}"
+    dest: "{{ build_directory }}/build-{{ tag | replace('/', '_') }}.zip"
+    format: zip

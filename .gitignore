@@ -1,2 +1,18 @@
-.DS_STORE
-.idea
+# OS Generated
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+*.swp
+
+# phpstorm
+.idea/*
+
+wordpress/wp-content/uploads/*
+docker-compose.prod.yml
+
+# Ansible
+ansible/inventories/prod.yml
+ansible/build
+ansible/deploy
+ansible/*.zip
