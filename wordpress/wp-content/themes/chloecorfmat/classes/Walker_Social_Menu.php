@@ -108,7 +108,7 @@ class Walker_Social_Menu extends Walker_Nav_Menu
 
         $item_output = $args->before;
         $item_output .= '<a'. $attributes .'>';
-        $item_output .= $args->link_before . $content . $args->link_after;
+        $item_output .= $args->link_before . $item->icon . $content . $args->link_after;
         $item_output .= '</a>';
         $item_output .= $args->after;
 

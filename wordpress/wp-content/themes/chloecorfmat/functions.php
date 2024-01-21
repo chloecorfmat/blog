@@ -51,53 +51,104 @@ function chloecorfmat_register_post_types() {
     );
 
     register_post_type( 'portfolio', $args );
+
+    $labels = array(
+        'name' => 'Thématiques principales',
+        'new_item_name' => 'Nom de la nouvelle thématique principale'
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'show_in_rest' => true,
+        'hierarchical' => false,
+        'rewrite' => [
+            'slug' => '/thematiques'
+        ]
+    );
+
+    register_taxonomy( 'post-main-thematic', 'post', $args );
 }
 add_action( 'init', 'chloecorfmat_register_post_types' );
 
 function chloecorfmat_allowed_block( $allowed_block_types, $post ) {
-    /**return [
-        'chloecorfmat/articles-details',
-    ];**/
+    //return true;
 
-	return true;
+    return [
+        'acf/block-chloecorfmat-text',
+        'acf/block-chloecorfmat-image',
+    ];
 }
 add_filter( 'allowed_block_types_all', 'chloecorfmat_allowed_block', 10, 2 );
 
-/**
- * Add field for icon classes in menus
- * https://pressidium.com/blog/adding-custom-fields-to-wordpress-menu-items/#:~:text=Select%20'Menu%20Item'%20under%20the,Pretty%20easy!
- */
-function chloecorfmat_menu_item_custom_fields( $item_id, $item ) {
-    $menu_item_icon = get_post_meta( $item_id, '_menu_item_icon', true );
-    ?>
-    <div style="clear: both;">
-        <span class="icon"><?php _e( "Classes de l'icône", 'chloecorfmat' ); ?></span><br />
-        <input type="hidden" class="nav-menu-id" value="<?php echo $item_id ;?>" />
-        <div class="logged-input-holder">
-            <input type="text" name="menu_item_icon[<?php echo $item_id ;?>]" id="menu-item-icon-<?php echo $item_id ;?>" value="<?php echo esc_attr( $menu_item_icon ); ?>" />
-        </div>
-    </div>
-    <?php
-}
-add_action( 'wp_nav_menu_item_custom_fields', 'chloecorfmat_menu_item_custom_fields', 10, 2 );
 
-function chloecorfmat_save_menu_item_icon( $menu_id, $menu_item_db_id ) {
-    if ( isset( $_POST['menu_item_icon'][$menu_item_db_id]  ) ) {
-        $sanitized_data = sanitize_text_field( $_POST['menu_item_icon'][$menu_item_db_id] );
-        update_post_meta( $menu_item_db_id, '_menu_item_icon', $sanitized_data );
-    } else {
-        delete_post_meta( $menu_item_db_id, '_menu_item_icon' );
-    }
-}
-add_action( 'wp_update_nav_menu_item', 'chloecorfmat_save_menu_item_icon', 10, 2 );
+function chloecorfmat_nav_menu_objects($items, $args)
+{
+    foreach ($items as &$item) {
+        $icon = get_field('icon', $item);
 
-function chloecorfmat_show_menu_item_icon( $title, $item ) {
-    if( is_object( $item ) && isset( $item->ID ) ) {
-        $menu_item_icon = get_post_meta( $item->ID, '_menu_item_icon', true );
-        if ( ! empty( $menu_item_icon ) ) {
-            $title .= '<i class="'. $menu_item_icon .'"></i>';
+
+        if ($icon) {
+            $item->icon = $icon;
         }
     }
-    return $title;
+
+    return $items;
 }
-add_filter( 'nav_menu_item_title', 'chloecorfmat_show_menu_item_icon', 10, 2 );
+
+add_filter('wp_nav_menu_objects', 'chloecorfmat_nav_menu_objects', 10, 2);
+
+function add_custom_category($categories)
+{
+    $categories[] = [
+        'slug' => 'chloecorfmat-articles',
+        'title' => 'Blocs pour les articles Chloé Corfmat',
+    ];
+
+    return $categories;
+}
+
+add_filter('block_categories_all', 'add_custom_category');
+
+function chloecorfmat_register_acf_block_types() {
+
+    acf_register_block_type( array(
+        'name'              => 'block_chloecorfmat_text',
+        'title'             => 'Bloc texte',
+        'description'       => "Écrire du contenu dans un WYSIWYG",
+        'render_template'   => 'blocks/text.php',
+        'category'          => 'chloecorfmat-articles',
+        'icon'              => 'text',
+        'enqueue_assets'    => function() {
+            wp_enqueue_style(
+                'chloecorfmat-blocks',
+                get_template_directory_uri() . '/assets/main.css'
+            );
+        }
+    ) );
+
+    acf_register_block_type( array(
+        'name'              => 'block_chloecorfmat_image',
+        'title'             => 'Bloc image',
+        'description'       => "Insérez une image full largeur",
+        'render_template'   => 'blocks/image.php',
+        'category'          => 'chloecorfmat-articles',
+        'icon'              => 'format-image',
+        'enqueue_assets'    => function() {
+            wp_enqueue_style(
+                'chloecorfmat-blocks',
+                get_template_directory_uri() . '/assets/main.css'
+            );
+        }
+    ) );
+}
+
+add_action( 'acf/init', 'chloecorfmat_register_acf_block_types' );
+
+add_filter('next_posts_link_attributes', 'posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'posts_link_attributes');
+
+function posts_link_attributes() {
+    return 'class="btn btn--primary pagination__btn"';
+}
+
