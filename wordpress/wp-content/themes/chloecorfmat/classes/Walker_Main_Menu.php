@@ -52,13 +52,18 @@ class Walker_Main_Menu extends Walker_Nav_Menu
 
         $output .= $indent . '<li' . $id . $class_names . 'data-content="' . $item->datacontent . '">';
 
-
         $atts = array();
         $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
         $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
         $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
         $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
         $atts['class']   = 'header-nav__link';
+
+        if (($atts['target'] == '_blank')) {
+            if ($atts['title'] == '' ) {
+                $atts['title'] = $item->title . ' - Nouvelle fenêtre'; // @Todo : traduire
+            }
+        }
 
         /**
          * Filters the HTML attributes applied to a menu item's anchor element.

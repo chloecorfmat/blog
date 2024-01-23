@@ -9,7 +9,7 @@ language_attributes(); ?>>
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class("front"); ?>>
 <header class="header">
     <div class="header-banner">
         <a href="<?php echo home_url( '/' ); ?>" class="header-banner__home">

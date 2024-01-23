@@ -36,6 +36,11 @@
     - README.md
     - .gitignore
 
+- name: Generate compose file
+  template:
+    src: templates/docker-compose.yml.j2
+    dest: "{{ build_directory }}/docker-compose.yml"
+
 - name: Create a zip archive of build
   community.general.archive:
     path: "{{ build_directory }}"

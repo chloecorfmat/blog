@@ -10,6 +10,7 @@ Thumbs.db
 
 wordpress/wp-content/uploads/*
 docker-compose.prod.yml
+dumps/*
 
 # Ansible
 ansible/inventories/prod.yml

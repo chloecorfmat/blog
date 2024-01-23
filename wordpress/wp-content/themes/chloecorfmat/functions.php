@@ -16,7 +16,7 @@ function chloecorfmat_enqueue_scripts() {
 
     wp_enqueue_style(
         'chloecorfmat',
-        get_template_directory_uri() . '/assets/index.css',
+        get_template_directory_uri() . '/assets/main.css',
         array(),
         '1.0'
     );
@@ -85,7 +85,7 @@ add_filter( 'allowed_block_types_all', 'chloecorfmat_allowed_block', 10, 2 );
 function chloecorfmat_nav_menu_objects($items, $args)
 {
     foreach ($items as &$item) {
-        $icon = get_field('icon', $item);
+        $icon = get_field('menu_complex_icon', $item);
 
 
         if ($icon) {
@@ -152,3 +152,14 @@ function posts_link_attributes() {
     return 'class="btn btn--primary pagination__btn"';
 }
 
+function add_rewrite_rules( $wp_rewrite )
+{
+    $new_rules = array(
+        'blog/(.+?)/?$' => 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1),
+    );
+
+    $wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
+}
+add_action('generate_rewrite_rules', 'add_rewrite_rules');
+
+include_once ('acf.php');

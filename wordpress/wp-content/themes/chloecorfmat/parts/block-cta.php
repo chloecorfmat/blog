@@ -1,25 +1,25 @@
 <?php
-$subtitle = get_field('block_cta_surtitle', 'option');
-$title = get_field('block_cta_title', 'option');
-$content = get_field('block_cta_content', 'option');
-$btn = get_field('block_cta_btn', 'option');
+$subtitle = get_field('cta_surtitle', 'option');
+$title = get_field('cta_title', 'option');
+$content = get_field('cta_content', 'option');
+$btn = get_field('cta_btn', 'option');
 
 if (is_single()) {
-    $subtitle = get_field('block_cta_surtitle');
-    $title = get_field('block_cta_title');
-    $content = get_field('block_cta_content');
-    $btn = get_field('block_cta_btn');
+    $subtitle = get_field('cta_surtitle');
+    $title = get_field('cta_title');
+    $content = get_field('cta_content');
+    $btn = get_field('cta_btn');
 }
 
 if (is_archive()) {
     $term = get_queried_object();
-    $subtitle = get_field('block_cta_surtitle', $term);
-    $title = get_field('block_cta_title', $term);
-    $content = get_field('block_cta_content', $term);
-    $btn = get_field('block_cta_btn', $term);
+    $subtitle = get_field('cta_surtitle', $term);
+    $title = get_field('cta_title', $term);
+    $content = get_field('cta_content', $term);
+    $btn = get_field('cta_btn', $term);
 }
 
-$btn_url = $btn['text'];
+$btn_url = $btn['url'];
 $btn_new_window = $btn['new_window'];
 $btn_text = $btn['text'];
 $btn_icon = $btn['icon'];

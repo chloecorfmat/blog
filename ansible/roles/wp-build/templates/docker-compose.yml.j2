@@ -1,0 +1,64 @@
+version: '3.1'
+
+services:
+
+  wordpress:
+    image: wordpress:6.4.1-php8.2-apache
+    restart: always
+    ports:
+      - 8095:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: "{{ DB.USER }}"
+      WORDPRESS_DB_PASSWORD: "{{ DB.PASSWORD }}"
+      WORDPRESS_DB_NAME: "{{ DB.NAME }}"
+      WORDPRESS_DEBUG: 0
+    volumes:
+      - ./wordpress:/var/www/html
+      - ../shared/uploads:/var/www/html/wordpress/wp-content/uploads
+    networks:
+      - web
+      - internal
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.blog.rule=Host(`chloecorfmat.fr`, `www.chloecorfmat.fr`) && PathPrefix(`/blog`)"
+      - "traefik.http.routers.blog.entrypoints=websecure"
+      - "traefik.http.routers.blog.middlewares=strip-www"
+      - "traefik.http.middlewares.blog-stripprefix.stripprefix.prefixes=/blog"
+	  - "traefik.http.routers.blog.middlewares=blog-stripprefix"
+
+  wp-cli:
+    image: wordpress:cli-2.9.0-php8.2
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: "{{ DB.USER }}"
+      WORDPRESS_DB_PASSWORD: "{{ DB.PASSWORD }}"
+      WORDPRESS_DB_NAME: "{{ DB.NAME }}"
+      WORDPRESS_DEBUG: 1
+    command: tail -f /dev/null
+    volumes:
+      - ./wordpress:/var/www/html
+    networks:
+      - internal
+
+  db:
+    image: mariadb:11.1.2
+    restart: always
+    environment:
+      MYSQL_DATABASE: "{{ DB.NAME }}"
+      MYSQL_USER: "{{ DB.USER }}"
+      MYSQL_PASSWORD: "{{ DB.PASSWORD }}"
+      MYSQL_ROOT_PASSWORD: "{{ DB.ROOT_PASSWORD }}"
+    networks:
+      - internal
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+
+networks:
+  internal:
+  web:
+    external: true

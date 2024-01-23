@@ -4,6 +4,13 @@
 
 # Install on server unzip, pip and with pip install docker and docker-compose
 
+- name: "Remove deploy directory"
+  file:
+    path: "{{ deploy_directory }}"
+    state: absent
+  become: true
+
+
 - name: "Create deploy directories"
   file:
     path: "{{ item }}"
@@ -11,6 +18,7 @@
     mode: '0755'
   loop:
     - "{{ deploy_directory }}"
+  become: true
 
 - name: "Create shared directory"
   file:
@@ -21,6 +29,7 @@
     group: "www-data"
   loop:
     - "{{ deploy_directory }}/shared"
+  become: true
 
 - name: "Copy and unzip archive"
   unarchive:
@@ -34,11 +43,11 @@
 - name: Stop docker
   community.docker.docker_compose:
     project_src: "{{ deploy_directory }}/build"
-    files: docker-compose.prod.yml
+    files: docker-compose.yml
     state: absent
 
 - name: Launch docker
   community.docker.docker_compose:
     project_src: "{{ deploy_directory }}/build"
-    files: docker-compose.prod.yml
+    files: docker-compose.yml
     build: true

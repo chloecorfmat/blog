@@ -14,9 +14,9 @@
                         <div class="portrait">
                             <?php $picture = get_field('portrait_picture', 'option')[0]; ?>
                             <img src="<?php echo esc_url( $picture['sizes']['medium'] ); ?>" alt="" class="portrait__picture" />
-                            <h2 class="portrait__title">Chloé Corfmat</h2>
-                            <p class="portrait__text"><?php the_field( 'portrait_pitch', 'option' ); ?></p>
-                            <?php $link = get_field('link', 'option'); ?>
+                            <h2 class="portrait__title"><?php the_field('portrait_title', 'option') ?></h2>
+                            <div class="portrait__text"><?php the_field( 'portrait_pitch', 'option' ); ?></div>
+                            <?php $link = get_field('portrait_link', 'option'); ?>
                             <a
                                 href="<?php echo $link['url'] ?>"
                                 class="btn btn--primary portrait__btn"
@@ -30,7 +30,7 @@
                         <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
                             <article class="list-articles__item" data-expand-target>
                                 <?php
-                                $packshot = get_field('packshot')[0];
+                                $packshot = get_field('article_packshot')[0];
                                 ?>
 
                                 <img src="<?php echo esc_url( $packshot['sizes']['medium_large'] ) ?>" alt="" class="list-articles__item-image"/>

@@ -3,7 +3,7 @@
     <main role="main" id="main" tabindex="0">
         <article class="article--full">
             <?php
-                $packshot = get_field('packshot')[0];
+                $packshot = get_field('article_packshot')[0];
             ?>
             <img src="<?php echo esc_url( $packshot['sizes']['2048x2048'] ) ?>" alt="" class="article--full__banner"/>
 
@@ -20,7 +20,7 @@
                             <li  class="article--full__infos-item">
                                 <?php
                                 $author_id = get_the_author_meta('ID');
-                                $author_avatar = get_field('avatar', 'user_'. $author_id );
+                                $author_avatar = get_field('user_avatar', 'user_'. $author_id );
                                 ?>
                                 <img src="<?php echo esc_url( $author_avatar['sizes']['thumbnail'] ); ?>" alt="<?php echo esc_attr( $author_avatar['alt'] ) ?>" class="article--full__infos-picture" />
                                 <p class="article--full__infos-text">Écrit par <span class="article--full__infos-link--disabled"><?php the_author(); ?></span></p>
@@ -31,7 +31,7 @@
                             </li>
                             <li  class="article--full__infos-item">
                                 <i class="fa-solid fa-stopwatch fa-lg article--full__infos-icon" aria-hidden="true"></i>
-                                <p class="article--full__infos-text">Lecture <?php echo esc_html(get_field('reading_time')); ?> min.</p>
+                                <p class="article--full__infos-text">Lecture <?php echo esc_html(get_field('article_reading_time')); ?> min.</p>
                             </li>
                         </ul>
                     </div>

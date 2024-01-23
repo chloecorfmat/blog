@@ -1,16 +1,16 @@
 <?php
-    $articles = get_field('related_articles');
+    $articles = get_field('related_articles_list');
 ?>
 
 <?php if (sizeof($articles) > 0) { ?>
     <div class="block">
         <div class="block-related-articles" id="block-related-articles">
-            <p class="block__subtitle">Les articles en lien</p>
-            <h2>J'ai aussi <span class="highlighted">écrit</span></h2>
+            <p class="block__subtitle"><?php echo the_field('related_articles_surtitle') ?></p>
+            <h2><?php echo the_field('related_articles_title') ?></h2>
             <ul class="related-articles">
                 <?php foreach ($articles as $article_object) {
                     $article = $article_object['article']->to_array();
-                    $packshot = get_field( "packshot", $article['ID'] )[0];
+                    $packshot = get_field( "article_packshot", $article['ID'] )[0];
                 ?>
                     <li class="article-item" data-expand-target>
                         <a href="#" class="article-item__link" data-expand-link>
