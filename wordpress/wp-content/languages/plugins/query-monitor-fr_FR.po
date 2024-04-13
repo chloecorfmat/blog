@@ -2,14 +2,41 @@
 # This file is distributed under the same license as the Plugins - Query Monitor - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2023-08-30 16:10:17+0000\n"
+"PO-Revision-Date: 2024-04-02 08:34:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: GlotPress/4.0.0-alpha.11\n"
+"X-Generator: GlotPress/4.0.0\n"
 "Language: fr\n"
 "Project-Id-Version: Plugins - Query Monitor - Stable (latest release)\n"
+
+#: collectors/logger.php:173
+msgid "Assertion failed"
+msgstr "Échec de l’assertion"
+
+#. translators: %s: Assertion message
+#: collectors/logger.php:169
+msgid "Assertion failed: %s"
+msgstr "Échec de l’assertion : %s"
+
+#: collectors/logger.php:161
+msgid "Assertion passed"
+msgstr "Affirmation transmise"
+
+#. translators: %s: Assertion message
+#: collectors/logger.php:157
+msgid "Assertion passed: %s"
+msgstr "Affirmation transmise : %s"
+
+#: classes/Collector.php:122 output/html/environment.php:242
+msgid "empty string"
+msgstr "chaine vide"
+
+#. translators: %s: Drop-in plugin file name
+#: classes/Util.php:328
+msgid "Drop-in: %s"
+msgstr "Avancée : %s"
 
 #: output/html/hooks.php:36
 msgid "Hooks, Actions, & Filters"
@@ -134,10 +161,18 @@ msgstr[1] "Total : %s"
 msgid "Block Template"
 msgstr "Modèles de bloc"
 
+#: output/html/timing.php:216
+msgid "Timings"
+msgstr "Horaires"
+
 #. translators: %s: Link to help article
 #: output/html/timing.php:45
 msgid "No data logged. <a href=\"%s\">Read about timing and profiling in Query Monitor</a>."
 msgstr "Aucune donnée n‘est journalisée. <a href=\"%s\">En savoir plus sur la synchronisation et le profilage dans Query Monitor</a>."
+
+#: output/html/multisite.php:52
+msgid "Site Switch"
+msgstr "Commutateur de site"
 
 #: output/html/multisite.php:51
 msgid "Function"
@@ -732,6 +767,7 @@ msgid "Logger"
 msgstr "Journaliser"
 
 #. Description of the plugin
+#: query-monitor.php
 msgid "The developer tools panel for WordPress."
 msgstr "Le panneau des outils de développement pour WordPress."
 
@@ -1252,11 +1288,13 @@ msgid "Unable to determine source of lambda function"
 msgstr "Impossible de déterminer la source de la fonction lambda"
 
 #. Author of the plugin
+#: query-monitor.php
 msgid "John Blackbourn"
 msgstr "John Blackbourn"
 
 #. Plugin URI of the plugin
 #. Author URI of the plugin
+#: query-monitor.php
 msgid "https://querymonitor.com/"
 msgstr "https://querymonitor.com/"
 
@@ -1497,7 +1535,7 @@ msgid "PHP Errors in Ajax Response"
 msgstr "Erreurs PHP dans la réponse AJAX"
 
 #. Plugin Name of the plugin
-#: classes/QueryMonitor.php:195 classes/QueryMonitor.php:228
+#: query-monitor.php classes/QueryMonitor.php:195 classes/QueryMonitor.php:228
 #: dispatchers/Html.php:147 dispatchers/Html.php:437 dispatchers/Html.php:825
 #: dispatchers/WP_Die.php:132
 msgid "Query Monitor"

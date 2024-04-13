@@ -133,5 +133,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once ABSPATH . 'wp-settings.php';
 
 /** FOR PRODUCTION ONLY **/
-$_SERVER['REQUEST_URI'] = str_replace("/wp-admin/", "/blog/wp-admin/",  $_SERVER['REQUEST_URI']);
-$_SERVER['REQUEST_URI'] = str_replace("/wp-login.php", "/blog/wp-login.php", $_SERVER['REQUEST_URI']);
+//$_SERVER['REQUEST_URI'] = str_replace("/wp-admin/", "/blog/wp-admin/",  $_SERVER['REQUEST_URI']);
+//$_SERVER['REQUEST_URI'] = str_replace("/wp-login.php", "/blog/wp-login.php", $_SERVER['REQUEST_URI']);

@@ -23,7 +23,7 @@ language_attributes(); ?>>
 
         <nav role="navigation" class="header-nav" id="js--header-nav">
             <?php
-            require_once('classes/Walker_Main_Menu.php');
+            require_once('walkers/Walker_Main_Menu.php');
             wp_nav_menu( array(
                 'theme_location' => 'main',
                 'container' => 'ul',
@@ -33,7 +33,7 @@ language_attributes(); ?>>
         </nav>
 
         <?php
-        require_once('classes/Walker_Social_Menu.php');
+        require_once('walkers/Walker_Social_Menu.php');
         wp_nav_menu( array(
             'theme_location' => 'social',
             'container' => 'ul',

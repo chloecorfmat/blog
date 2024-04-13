@@ -48,6 +48,10 @@ function chloecorfmat_register_post_types() {
         'supports' => array( 'title', 'editor','thumbnail' ),
         'menu_position' => 5,
         'menu_icon' => 'dashicons-admin-customizer',
+        'rewrite' => [
+            'slug' => (!empty(get_option('chloecorfmat_portfolio_slug'))) ? get_option('chloecorfmat_portfolio_slug') : '/portfolio',
+            'with_front' => false
+        ]
     );
 
     register_post_type( 'portfolio', $args );
@@ -70,6 +74,22 @@ function chloecorfmat_register_post_types() {
     register_taxonomy( 'post-main-thematic', 'post', $args );
 }
 add_action( 'init', 'chloecorfmat_register_post_types' );
+
+add_action('admin_init', function() {
+    add_settings_field('chloecorfmat_portfolio_slug', __('Portfolio', 'txtdomain'), 'chloecorfmat_portfolio_slug_output', 'permalink', 'optional');
+});
+
+function chloecorfmat_portfolio_slug_output() {
+    ?>
+        <input name="chloecorfmat_portfolio_slug" type="text" class="regular-text code" value="<?php echo esc_attr(get_option('chloecorfmat_portfolio_slug')); ?>" />
+    <?php
+}
+
+add_action('admin_init', function() {
+    if (isset($_POST['permalink_structure'])) {
+        update_option('chloecorfmat_portfolio_slug', trim($_POST['chloecorfmat_portfolio_slug']));
+    }
+});
 
 function chloecorfmat_allowed_block( $allowed_block_types, $post ) {
     //return true;
@@ -152,7 +172,7 @@ function posts_link_attributes() {
     return 'class="btn btn--primary pagination__btn"';
 }
 
-function add_rewrite_rules( $wp_rewrite )
+/**function add_rewrite_rules( $wp_rewrite )
 {
     $new_rules = array(
         'blog/(.+?)/?$' => 'index.php?post_type=post&name='. $wp_rewrite->preg_index(1),
@@ -160,6 +180,8 @@ function add_rewrite_rules( $wp_rewrite )
 
     $wp_rewrite->rules = $new_rules + $wp_rewrite->rules;
 }
-add_action('generate_rewrite_rules', 'add_rewrite_rules');
+add_action('generate_rewrite_rules', 'add_rewrite_rules');**/
 
-include_once ('acf.php');
+include_once ('acf-2024-04-13.php');
+
+
