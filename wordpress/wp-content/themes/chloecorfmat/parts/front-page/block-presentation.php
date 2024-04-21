@@ -31,7 +31,7 @@
 <div class="block">
     <img src="<?php echo get_template_directory_uri(); ?>/assets/05_sales.png" alt="" class="block-presentation__asset--1" />
 
-    <div class="block-presentation">
+    <div class="block-presentation" id="a-propos">
         <h2 class="sr-only"><?php echo $title ?></h2>
 
         <?php foreach($lines as $line) { ?>

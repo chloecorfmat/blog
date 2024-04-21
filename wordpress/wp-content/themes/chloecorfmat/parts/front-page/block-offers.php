@@ -16,7 +16,7 @@
 <div class="block">
     <img src="<?php echo get_template_directory_uri(); ?>/assets/07_sales.png" alt="" class="block-offers__asset--1" />
 
-    <div class="block-offers" id="offres">
+    <div class="block-offers" id="services">
         <h2><?php echo $title ?></h2>
         <div class="block-offers__infos wysiwyg">
             <p><?php echo $text ?></p>

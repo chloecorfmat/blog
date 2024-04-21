@@ -2,9 +2,9 @@
 all:
   vars:
     env: local
-    build_directory: "/Users/chloecorfmat/Documents/AE/Dev/blog/ansible/build"
-    deploy_directory: "/Users/chloecorfmat/Documents/AE/Dev/blog/ansible/deploy"
-    backups_directory: "/Users/chloecorfmat/Documents/AE/Dev/blog/ansible/backups"
+    build_directory: "/Users/chloecorfmat/Documents/AE/Dev/chloecorfmat/ansible/build"
+    deploy_directory: "/Users/chloecorfmat/Documents/AE/Dev/chloecorfmat/ansible/deploy"
+    backups_directory: "/Users/chloecorfmat/Documents/AE/Dev/chloecorfmat/ansible/backups"
     DB:
       USER: ''
       PASSWORD: ''

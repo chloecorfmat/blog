@@ -15,7 +15,7 @@
 <div class="block">
     <img src="<?php echo get_template_directory_uri(); ?>/assets/03_sales.png" alt="" class="block-why__asset--1" />
 
-    <div class="block-why">
+    <div class="block-why" id="pourquoi">
         <?php $block = get_field('block_why'); ?>
         <!--<h2>Pourquoi un <span class="highlighted">site web</span> ?</h2>-->
         <h2><?php echo $title ?></h2>

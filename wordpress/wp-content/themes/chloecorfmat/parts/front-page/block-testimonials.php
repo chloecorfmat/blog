@@ -23,7 +23,7 @@
 
 ?>
 
-<div class="block-testimonials" id="block-testimonials">
+<div class="block-testimonials" id="temoignages">
     <div class="block-testimonials__container">
         <h2><?php echo $title ?></h2>
         <ul class="block-testimonials__list">

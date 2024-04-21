@@ -16,7 +16,7 @@
 <div class="block">
     <img src="<?php echo get_template_directory_uri(); ?>/assets/09_sales.png" alt="" class="block-steps__asset--1" />
 
-    <div class="block-steps">
+    <div class="block-steps" id="etapes">
         <h2><?php echo $title ?></h2>
         <ol class="cards-list">
             <?php

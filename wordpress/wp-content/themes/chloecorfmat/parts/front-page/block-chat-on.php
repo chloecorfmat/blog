@@ -14,7 +14,7 @@
 ?>
 
 <div class="block-chat-on">
-    <div class="block-chat-on__container">
+    <div class="block-chat-on__container" id="chat-on">
         <h2><?php echo $title ?></h2>
         <div class="block-chat-on__content">
             <div class="block-chat-on__text">

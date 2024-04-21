@@ -14,7 +14,7 @@
     }
 ?>
 
-<div class="block-hero">
+<div class="block-hero" id="hero">
     <img src="<?php echo get_template_directory_uri(); ?>/assets/01_sales.png" alt="" class="block-hero__asset--1" />
 
     <div class="block-hero__content">

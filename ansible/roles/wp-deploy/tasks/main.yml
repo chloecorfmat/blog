@@ -4,13 +4,6 @@
 
 # Install on server unzip, pip and with pip install docker and docker-compose
 
-- name: "Remove deploy directory"
-  file:
-    path: "{{ deploy_directory }}"
-    state: absent
-  become: true
-
-
 - name: "Create deploy directories"
   file:
     path: "{{ item }}"
