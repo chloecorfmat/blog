@@ -22,11 +22,9 @@ services:
       - internal
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.blog.rule=Host(`chloecorfmat.fr`, `www.chloecorfmat.fr`) && PathPrefix(`/blog`)"
+      - "traefik.http.routers.blog.rule=Host(`chloecorfmat.fr`, `www.chloecorfmat.fr`)"
       - "traefik.http.routers.blog.entrypoints=websecure"
       - "traefik.http.routers.blog.middlewares=strip-www"
-      - "traefik.http.middlewares.blog-stripprefix.stripprefix.prefixes=/blog"
-      - "traefik.http.routers.blog.middlewares=blog-stripprefix"
 
   wp-cli:
     image: wordpress:cli-2.9.0-php8.2

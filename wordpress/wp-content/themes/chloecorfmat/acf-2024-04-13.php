@@ -1,6 +1,4 @@
 <?php
-// Last update : 13rd april 2024
-
 add_action( 'acf/include_fields', function() {
     if ( ! function_exists( 'acf_add_local_field_group' ) ) {
         return;
@@ -2436,7 +2434,7 @@ add_action( 'acf/include_fields', function() {
                 array(
                     'param' => 'options_page',
                     'operator' => '==',
-                    'value' => 'configuration',
+                    'value' => 'blog',
                 ),
             ),
             array(
@@ -2451,6 +2449,13 @@ add_action( 'acf/include_fields', function() {
                     'param' => 'taxonomy',
                     'operator' => '==',
                     'value' => 'post-main-thematic',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'blog',
                 ),
             ),
         ),
@@ -2534,7 +2539,7 @@ add_action( 'acf/include_fields', function() {
                 'default_value' => '',
                 'tabs' => 'all',
                 'toolbar' => 'full',
-                'media_upload' => 1,
+                'media_upload' => 0,
                 'delay' => 0,
             ),
             array(
@@ -2598,7 +2603,14 @@ add_action( 'acf/include_fields', function() {
                 array(
                     'param' => 'options_page',
                     'operator' => '==',
-                    'value' => 'configuration',
+                    'value' => 'blog',
+                ),
+            ),
+            array(
+                array(
+                    'param' => 'options_page',
+                    'operator' => '==',
+                    'value' => 'blog',
                 ),
             ),
         ),
@@ -2888,9 +2900,11 @@ add_action( 'acf/include_fields', function() {
 
 add_action( 'acf/init', function() {
     acf_add_options_page( array(
-        'page_title' => 'Configuration',
-        'menu_slug' => 'configuration',
-        'position' => '',
+        'page_title' => 'Blog',
+        'menu_slug' => 'blog',
+        'icon_url' => 'dashicons-edit',
+        'menu_title' => 'Blog',
+        'position' => 5,
         'redirect' => false,
     ) );
 } );
