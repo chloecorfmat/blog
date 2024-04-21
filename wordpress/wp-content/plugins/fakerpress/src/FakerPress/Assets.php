@@ -2,7 +2,7 @@
 
 namespace FakerPress;
 
-use lucatume\DI52\ServiceProvider;
+use FakerPress\Contracts\Service_Provider;
 
 /**
  * Class Assets.
@@ -11,9 +11,11 @@ use lucatume\DI52\ServiceProvider;
  *
  * @package StellarWP\Jobvite
  */
-class Assets extends ServiceProvider {
+class Assets extends Service_Provider {
 
 	public function register() {
+		singleton( static::class, $this );
+
 		$admin = make( Admin::class );
 
 		// Register a global CSS files

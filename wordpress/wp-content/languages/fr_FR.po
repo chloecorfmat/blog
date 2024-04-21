@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 6.5.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-04-11 08:54:39+0000\n"
+"PO-Revision-Date: 2024-04-20 12:32:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6328,7 +6328,7 @@ msgstr "Les étiquettes du thème, adaptées pour l’affichage."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-themes-controller.php:544
 msgid "The theme tags, as found in the theme header."
-msgstr "Les étiquettes du thème, tel qu’indiqué dans l’en-tête du thème."
+msgstr "Les étiquettes du thème, tel qu’indiqué dans l’entête du thème."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-themes-controller.php:539
 msgid "Tags indicating styles and features of the theme."
@@ -9381,17 +9381,17 @@ msgstr "Sélectionner un fichier sonore"
 #. translators: %s: Header height in pixels.
 #: wp-includes/customize/class-wp-customize-header-image-control.php:231
 msgid "Click &#8220;Add New Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header height of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
-msgstr "Cliquez sur « Ajouter une image » pour téléverser un fichier image depuis votre ordinateur. Votre thème fonctionne mieux avec une image avec la hauteur d’en-tête de %s pixels. Vous pourrez recadrer l’image dès qu’elle sera téléversée pour un ajustement parfait."
+msgstr "Cliquez sur « Ajouter une image » pour téléverser un fichier image depuis votre ordinateur. Votre thème fonctionne mieux avec une image avec la hauteur d’entête de %s pixels. Vous pourrez recadrer l’image dès qu’elle sera téléversée pour un ajustement parfait."
 
 #. translators: %s: Header width in pixels.
 #: wp-includes/customize/class-wp-customize-header-image-control.php:225
 msgid "Click &#8220;Add New Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header width of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
-msgstr "Cliquez sur « Ajouter une image » pour téléverser un fichier image depuis votre ordinateur. Votre thème fonctionne mieux avec une image avec la largeur d’en-tête de %s pixels. Vous pourrez recadrer l’image dès qu’elle sera téléversée pour un ajustement parfait."
+msgstr "Cliquez sur « Ajouter une image » pour téléverser un fichier image depuis votre ordinateur. Votre thème fonctionne mieux avec une image avec la largeur d’entête de %s pixels. Vous pourrez recadrer l’image dès qu’elle sera téléversée pour un ajustement parfait."
 
 #. translators: %s: Header size in pixels.
 #: wp-includes/customize/class-wp-customize-header-image-control.php:219
 msgid "Click &#8220;Add New Image&#8221; to upload an image file from your computer. Your theme works best with an image with a header size of %s pixels &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
-msgstr "Cliquez sur « Ajouter une image » pour téléverser un fichier image depuis votre ordinateur. Votre thème fonctionne mieux avec une image de taille d’en-tête de %s pixels. Vous pourrez recadrer l’image dès qu’elle sera téléversée pour un ajustement parfait."
+msgstr "Cliquez sur « Ajouter une image » pour téléverser un fichier image depuis votre ordinateur. Votre thème fonctionne mieux avec une image de taille d’entête de %s pixels. Vous pourrez recadrer l’image dès qu’elle sera téléversée pour un ajustement parfait."
 
 #: wp-includes/customize/class-wp-customize-header-image-control.php:215
 msgid "Click &#8220;Add New Image&#8221; to upload an image file from your computer. Your theme works best with an image that matches the size of your video &#8212; you&#8217;ll be able to crop your image once you upload it for a perfect fit."
@@ -10556,7 +10556,7 @@ msgstr "Réaffectez les publications et les liens du compte supprimé à cet ID 
 
 #: wp-includes/script-loader.php:1311
 msgid "This theme does not support video headers on this page. Navigate to the front page or another page that supports video headers."
-msgstr "Ce thème ne prend pas en charge les en-têtes vidéos sur cette page. Allez sur la page d’accueil ou sur une autre page qui prend en charge les entêtes vidéos."
+msgstr "Ce thème ne prend pas en charge les entêtes vidéos sur cette page. Allez sur la page d’accueil ou sur une autre page qui prend en charge les entêtes vidéos."
 
 #: wp-includes/customize/class-wp-customize-media-control.php:233
 msgid "Choose video"
@@ -12426,7 +12426,7 @@ msgstr "Approuvé"
 #: wp-includes/class-wp-theme.php:396
 #: wp-admin/includes/class-theme-upgrader.php:635
 msgid "Template is missing. Standalone themes need to have a %1$s or %2$s template file. <a href=\"%3$s\">Child themes</a> need to have a %4$s header in the %5$s stylesheet."
-msgstr "Le modèle est manquant. Les thèmes ont besoin du fichier de modèle %1$s ou %2$s. Les <a href=\"%3$s\">thèmes enfants</a> ont besoin d’un en-tête de modèle %4$s dans la feuille de style %5$s."
+msgstr "Le modèle est manquant. Les thèmes ont besoin du fichier de modèle %1$s ou %2$s. Les <a href=\"%3$s\">thèmes enfants</a> ont besoin d’un entête de modèle %4$s dans la feuille de style %5$s."
 
 #: wp-includes/class-wp-metadata-lazyloader.php:82
 #: wp-includes/class-wp-metadata-lazyloader.php:122
@@ -14565,7 +14565,7 @@ msgstr "Famille de police"
 #: wp-includes/class-wp-editor.php:1142
 msgctxt "TinyMCE"
 msgid "Headings"
-msgstr "En-têtes"
+msgstr "Titres"
 
 #: wp-includes/class-wp-customize-widgets.php:918
 msgid "Search widgets&hellip;"
