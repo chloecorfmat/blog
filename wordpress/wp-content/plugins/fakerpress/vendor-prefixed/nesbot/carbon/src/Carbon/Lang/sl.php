@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * Modified by Gustavo Bordoni on 21-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by Gustavo Bordoni on 22-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 /*
@@ -53,7 +53,7 @@ return [
 
     'year_ago' => ':count letom|:count letoma|:count leti|:count leti',
     'y_ago' => ':count letom|:count letoma|:count leti|:count leti',
-    'month_ago' => ':count mesecem|:count meseci|:count meseci|:count meseci',
+    'month_ago' => ':count mesecem|:count mesecema|:count meseci|:count meseci',
     'week_ago' => ':count tednom|:count tednoma|:count tedni|:count tedni',
     'day_ago' => ':count dnem|:count dnevoma|:count dnevi|:count dnevi',
     'd_ago' => ':count dnem|:count dnevoma|:count dnevi|:count dnevi',

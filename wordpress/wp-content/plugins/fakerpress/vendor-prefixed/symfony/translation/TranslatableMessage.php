@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * Modified by Gustavo Bordoni on 21-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by Gustavo Bordoni on 22-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 namespace FakerPress\ThirdParty\Symfony\Component\Translation;
@@ -25,7 +25,7 @@ class TranslatableMessage implements TranslatableInterface
     private $parameters;
     private $domain;
 
-    public function __construct(string $message, array $parameters = [], string $domain = null)
+    public function __construct(string $message, array $parameters = [], ?string $domain = null)
     {
         $this->message = $message;
         $this->parameters = $parameters;
@@ -52,7 +52,7 @@ class TranslatableMessage implements TranslatableInterface
         return $this->domain;
     }
 
-    public function trans(TranslatorInterface $translator, string $locale = null): string
+    public function trans(TranslatorInterface $translator, ?string $locale = null): string
     {
         return $translator->trans($this->getMessage(), array_map(
             static function ($parameter) use ($translator, $locale) {

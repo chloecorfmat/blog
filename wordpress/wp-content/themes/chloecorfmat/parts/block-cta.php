@@ -4,7 +4,7 @@ $title = get_field('cta_title', 'option');
 $content = get_field('cta_content', 'option');
 $btn = get_field('cta_btn', 'option');
 
-if (is_single()) {
+if (is_single() && get_post_type() !== "alternatives") {
     $subtitle = get_field('cta_surtitle');
     $title = get_field('cta_title');
     $content = get_field('cta_content');

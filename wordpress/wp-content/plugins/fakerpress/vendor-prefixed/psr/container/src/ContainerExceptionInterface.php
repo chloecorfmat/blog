@@ -2,7 +2,7 @@
 /**
  * @license MIT
  *
- * Modified by Gustavo Bordoni on 21-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by Gustavo Bordoni on 22-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 namespace FakerPress\ThirdParty\Psr\Container;

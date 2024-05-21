@@ -33,7 +33,7 @@ register_nav_menus( array(
 function chloecorfmat_register_post_types() {
     $labels = array(
         'name' => 'Portfolio',
-        'all_items' => 'Tous les projets',  // affiché dans le sous menu
+        'all_items' => 'Tous les projets',
         'singular_name' => 'Projet',
         'add_new_item' => 'Ajouter un projet',
         'edit_item' => 'Modifier le projet',
@@ -44,7 +44,7 @@ function chloecorfmat_register_post_types() {
         'labels' => $labels,
         'public' => true,
         'show_in_rest' => true,
-        'has_archive' => true,
+        'has_archive' => 'portfolio',
         'supports' => array( 'title', 'editor','thumbnail' ),
         'menu_position' => 5,
         'menu_icon' => 'dashicons-admin-customizer',
@@ -55,6 +55,31 @@ function chloecorfmat_register_post_types() {
     );
 
     register_post_type( 'portfolio', $args );
+
+    $labels_alternatives = array(
+        'name' => 'Les alternatives accessibles à mes contenus',
+        'all_items' => 'Toutes les alternatives',
+        'singular_name' => 'Alternative',
+        'add_new_item' => 'Ajouter une alternative',
+        'edit_item' => 'Modifier l\'alternative',
+        'menu_name' => 'Alternatives'
+    );
+
+    $args_alternatives = array(
+        'labels' => $labels_alternatives,
+        'public' => true,
+        'show_in_rest' => true,
+        'has_archive' => 'alternatives',
+        'supports' => array( 'title'),
+        'menu_position' => 5,
+        'menu_icon' => 'dashicons-universal-access',
+        'rewrite' => [
+            'slug' => (!empty(get_option('chloecorfmat_alternatives_slug'))) ? get_option('chloecorfmat_alternatives_slug') : '/alternatives',
+            'with_front' => false
+        ]
+    );
+
+    register_post_type( 'alternatives', $args_alternatives );
 
     $labels = array(
         'name' => 'Thématiques principales',
@@ -77,6 +102,7 @@ add_action( 'init', 'chloecorfmat_register_post_types' );
 
 add_action('admin_init', function() {
     add_settings_field('chloecorfmat_portfolio_slug', __('Portfolio', 'txtdomain'), 'chloecorfmat_portfolio_slug_output', 'permalink', 'optional');
+    add_settings_field('chloecorfmat_alternatives_slug', __('Page des alternatives', 'txtdomain'), 'chloecorfmat_alternatives_slug_output', 'permalink', 'optional');
 });
 
 function chloecorfmat_portfolio_slug_output() {
@@ -85,9 +111,16 @@ function chloecorfmat_portfolio_slug_output() {
     <?php
 }
 
+function chloecorfmat_alternatives_slug_output() {
+    ?>
+    <input name="chloecorfmat_alternatives_slug" type="text" class="regular-text code" value="<?php echo esc_attr(get_option('chloecorfmat_alternatives_slug')); ?>" />
+    <?php
+}
+
 add_action('admin_init', function() {
     if (isset($_POST['permalink_structure'])) {
         update_option('chloecorfmat_portfolio_slug', trim($_POST['chloecorfmat_portfolio_slug']));
+        update_option('chloecorfmat_alternatives_slug', trim($_POST['chloecorfmat_alternatives_slug']));
     }
 });
 
@@ -182,6 +215,6 @@ function posts_link_attributes() {
 }
 add_action('generate_rewrite_rules', 'add_rewrite_rules');**/
 
-include_once ('acf-2024-04-13.php');
+// include_once ('acf-2024-04-13.php');
 
 

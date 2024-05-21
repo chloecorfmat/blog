@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * Modified by Gustavo Bordoni on 21-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by Gustavo Bordoni on 22-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 namespace FakerPress\ThirdParty\Carbon\Traits;
@@ -59,7 +59,6 @@ trait Rounding
             'microsecond' => [0, 999999],
         ]);
         $factor = 1;
-        $initialMonth = $this->month;
 
         if ($normalizedUnit === 'week') {
             $normalizedUnit = 'day';
@@ -132,16 +131,13 @@ trait Rounding
         $normalizedValue = floor($function(($value - $minimum) / $precision) * $precision + $minimum);
 
         /** @var CarbonInterface $result */
-        $result = $this->$normalizedUnit($normalizedValue);
+        $result = $this;
 
         foreach ($changes as $unit => $value) {
             $result = $result->$unit($value);
         }
 
-        return $normalizedUnit === 'month' && $precision <= 1 && abs($result->month - $initialMonth) === 2
-            // Re-run the change in case an overflow occurred
-            ? $result->$normalizedUnit($normalizedValue)
-            : $result;
+        return $result->$normalizedUnit($normalizedValue);
     }
 
     /**

@@ -8,13 +8,20 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * Modified by Gustavo Bordoni on 21-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by Gustavo Bordoni on 22-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 namespace FakerPress\ThirdParty\Carbon;
 
 class CarbonPeriodImmutable extends CarbonPeriod
 {
+    /**
+     * Default date class of iteration items.
+     *
+     * @var string
+     */
+    protected const DEFAULT_DATE_CLASS = CarbonImmutable::class;
+
     /**
      * Date class of iteration items.
      *

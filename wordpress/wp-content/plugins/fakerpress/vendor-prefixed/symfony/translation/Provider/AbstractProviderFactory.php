@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * Modified by Gustavo Bordoni on 21-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by Gustavo Bordoni on 22-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 namespace FakerPress\ThirdParty\Symfony\Component\Translation\Provider;
@@ -30,7 +30,7 @@ abstract class AbstractProviderFactory implements ProviderFactoryInterface
     protected function getUser(Dsn $dsn): string
     {
         if (null === $user = $dsn->getUser()) {
-            throw new IncompleteDsnException('User is not set.', $dsn->getOriginalDsn());
+            throw new IncompleteDsnException('User is not set.', $dsn->getScheme().'://'.$dsn->getHost());
         }
 
         return $user;

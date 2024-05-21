@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * Modified by Gustavo Bordoni on 21-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by Gustavo Bordoni on 22-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 namespace FakerPress\ThirdParty\Symfony\Component\Translation\Loader;
@@ -77,7 +77,7 @@ class IcuResFileLoader implements LoaderInterface
      *
      * @return array
      */
-    protected function flatten(\ResourceBundle $rb, array &$messages = [], string $path = null)
+    protected function flatten(\ResourceBundle $rb, array &$messages = [], ?string $path = null)
     {
         foreach ($rb as $key => $value) {
             $nodePath = $path ? $path.'.'.$key : $key;

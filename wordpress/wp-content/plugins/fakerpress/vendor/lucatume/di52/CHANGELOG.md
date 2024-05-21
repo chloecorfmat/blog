@@ -5,6 +5,18 @@ to [Semantic Versioning](http://semver.org/).
 
 ## [unreleased] Unreleased
 
+## [3.3.6] 2024-04-02;
+
+### Added
+
+- The `afterBuildAll` parameter to the `bindDecorators` and `singletonDecorators` method, fixes #61.
+
+## [3.3.5] 2023-09-01;
+
+### Changed
+
+- Added [PHPStan generics](https://phpstan.org/blog/generics-in-php-using-phpdocs) to multiple classes. IDEs that support them will get autocompletion (.phpstorm.meta.php not required) if a fully-qualified class name is used, e.g. `$instance = $container->get( Test::class );`. 
+
 ## [3.3.4] 2023-06-20;
 
 ### Added
@@ -519,4 +531,6 @@ org/psr/psr-11/)
 [3.3.2]: https://github.com/lucatume/di52/compare/3.3.1...3.3.2
 [3.3.3]: https://github.com/lucatume/di52/compare/3.3.2...3.3.3
 [3.3.4]: https://github.com/lucatume/di52/compare/3.3.3...3.3.4
-[unreleased]: https://github.com/lucatume/di52/compare/3.3.4...HEAD
+[3.3.5]: https://github.com/lucatume/di52/compare/3.3.4...3.3.5
+[3.3.6]: https://github.com/lucatume/di52/compare/3.3.5...3.3.6
+[unreleased]: https://github.com/lucatume/di52/compare/3.3.6...HEAD

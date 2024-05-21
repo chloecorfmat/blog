@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * Modified by Gustavo Bordoni on 21-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by Gustavo Bordoni on 22-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 namespace FakerPress\ThirdParty\Carbon\MessageFormatter;
@@ -17,11 +17,13 @@ use ReflectionMethod;
 use FakerPress\ThirdParty\Symfony\Component\Translation\Formatter\MessageFormatter;
 use FakerPress\ThirdParty\Symfony\Component\Translation\Formatter\MessageFormatterInterface;
 
+// @codeCoverageIgnoreStart
 $transMethod = new ReflectionMethod(MessageFormatterInterface::class, 'format');
 
 require $transMethod->getParameters()[0]->hasType()
     ? __DIR__.'/../../../lazy/Carbon/MessageFormatter/MessageFormatterMapperStrongType.php'
     : __DIR__.'/../../../lazy/Carbon/MessageFormatter/MessageFormatterMapperWeakType.php';
+// @codeCoverageIgnoreEnd
 
 final class MessageFormatterMapper extends LazyMessageFormatter
 {

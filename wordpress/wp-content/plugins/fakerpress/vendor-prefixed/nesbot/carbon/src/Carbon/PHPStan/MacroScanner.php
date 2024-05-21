@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * Modified by Gustavo Bordoni on 21-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by Gustavo Bordoni on 22-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 namespace FakerPress\ThirdParty\Carbon\PHPStan;
@@ -38,10 +38,8 @@ final class MacroScanner
     /**
      * Return true if the given pair class-method is a Carbon macro.
      *
-     * @param string $className
-     * @phpstan-param class-string $className
-     *
-     * @param string $methodName
+     * @param class-string $className
+     * @param string       $methodName
      *
      * @return bool
      */
@@ -63,10 +61,8 @@ final class MacroScanner
     /**
      * Return the Macro for a given pair class-method.
      *
-     * @param string $className
-     * @phpstan-param class-string $className
-     *
-     * @param string $methodName
+     * @param class-string $className
+     * @param string       $methodName
      *
      * @throws ReflectionException
      *

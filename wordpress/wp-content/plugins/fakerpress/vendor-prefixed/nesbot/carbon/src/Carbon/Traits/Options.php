@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * Modified by Gustavo Bordoni on 21-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by Gustavo Bordoni on 22-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 namespace FakerPress\ThirdParty\Carbon\Traits;
@@ -424,7 +424,7 @@ trait Options
         foreach ($map as $property => $key) {
             $value = $this->$property ?? null;
 
-            if ($value !== null) {
+            if ($value !== null && ($key !== 'locale' || $value !== 'en' || $this->localTranslator)) {
                 $settings[$key] = $value;
             }
         }
@@ -439,7 +439,7 @@ trait Options
      */
     public function __debugInfo()
     {
-        $infos = array_filter(get_object_vars($this), function ($var) {
+        $infos = array_filter(get_object_vars($this), static function ($var) {
             return $var;
         });
 

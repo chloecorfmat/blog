@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * Modified by Gustavo Bordoni on 21-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by Gustavo Bordoni on 22-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 namespace FakerPress\ThirdParty\Carbon\Traits;
@@ -148,7 +148,7 @@ trait Serialization
     public function __serialize(): array
     {
         // @codeCoverageIgnoreStart
-        if (isset($this->timezone_type)) {
+        if (isset($this->timezone_type, $this->timezone, $this->date)) {
             return [
                 'date' => $this->date ?? null,
                 'timezone_type' => $this->timezone_type,

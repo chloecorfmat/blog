@@ -180,6 +180,14 @@
   margin: 0;
   padding: 0;
 }
+.front .without-cover {
+  margin-top: 2rem;
+}
+@media (min-width: 1200px) {
+  .front .without-cover {
+    margin-top: 7rem;
+  }
+}
 .front .page {
   padding: 2rem 1rem;
   background-color: #ffffff;
@@ -1074,6 +1082,138 @@
     padding: 12rem 15rem;
   }
 }
+.front .list-alternatives {
+  width: 100%;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+.front .list-alternatives__banner {
+  width: 100%;
+  height: 5rem;
+  overflow: hidden;
+  object-fit: cover;
+  background: #f4efe4;
+}
+.front .list-alternatives__content {
+  padding: 3rem 1rem 0;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  background: #ffffff;
+}
+@media (min-width: 1400px) {
+  .front .list-alternatives__content {
+    margin: -4rem auto 0;
+    padding: 1rem 2rem 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+}
+.front .list-alternatives__title {
+  margin: 1rem 0;
+  font-family: "Lexend", sans-serif;
+  font-size: 2rem;
+}
+.front .list-alternatives__text {
+  margin: 2rem 0;
+}
+.front .list-alternatives__body {
+  display: grid;
+  grid-gap: 2rem;
+  margin-top: 3rem;
+}
+@media (min-width: 1200px) {
+  .front .list-alternatives__body {
+    grid-gap: 5rem;
+  }
+}
+.front .list-alternatives__item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: #f4efe4;
+  border-radius: 5px;
+  padding: 2rem;
+  box-sizing: border-box;
+  margin-bottom: 3rem;
+}
+@media (min-width: 1400px) {
+  .front .list-alternatives__item {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+.front .list-alternatives__item-image {
+  width: 100%;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+  border: 3px solid #7ab8a4;
+  border-radius: 7px;
+}
+@media (min-width: 1400px) {
+  .front .list-alternatives__item-image {
+    margin-bottom: 0;
+    width: 35%;
+    height: 35%;
+  }
+}
+@media (min-width: 1400px) {
+  .front .list-alternatives__item-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    align-items: flex-start;
+  }
+}
+.front .list-alternatives__item-text {
+  margin-top: 0.25rem;
+}
+.front .list-alternatives__item-title {
+  font-size: 1.5rem;
+  text-align: left;
+  margin: 1rem 0 0.5rem;
+}
+.front .list-alternatives__item-date {
+  margin: 0.5rem 0;
+}
+.front .list-alternatives__item-link {
+  text-align: right;
+  display: inline-block;
+  font-family: "Lexend", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #de5d5c;
+  text-decoration: none;
+}
+.front .list-alternatives__item-link:hover {
+  color: #b24a4a;
+  text-decoration: underline wavy;
+  text-underline-offset: 4px;
+}
+@media (min-width: 1200px) {
+  .front .list-alternatives__before {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  .front .list-alternatives__list {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+  .front .list-alternatives__after {
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+  }
+}
 .front .article--full {
   width: 100%;
   background: #ffffff;
@@ -1194,7 +1334,7 @@
   width: 100%;
 }
 .front .gutenberg__block {
-  margin-top: 1rem;
+  margin-bottom: 5rem;
 }
 .front .gutenberg__title {
   text-align: left;
@@ -1205,20 +1345,12 @@
 .front .gutenberg__image {
   width: 100%;
   border-radius: 5px;
-  margin-bottom: 2rem;
   box-sizing: border-box;
 }
 .front .list-articles {
   width: 100%;
   background: #ffffff;
   box-sizing: border-box;
-}
-.front .list-articles__banner {
-  width: 100%;
-  height: 5rem;
-  overflow: hidden;
-  object-fit: cover;
-  background: #f4efe4;
 }
 .front .list-articles__content {
   padding: 3rem 1rem 0;
@@ -1988,7 +2120,7 @@
   font-weight: 700;
 }
 .gutenberg__block {
-  margin-top: 1rem;
+  margin-bottom: 5rem;
 }
 .gutenberg__title {
   text-align: left;
@@ -1999,6 +2131,5 @@
 .gutenberg__image {
   width: 100%;
   border-radius: 5px;
-  margin-bottom: 2rem;
   box-sizing: border-box;
 }

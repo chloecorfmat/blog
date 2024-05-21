@@ -2,7 +2,7 @@
 /**
  * @license MIT
  *
- * Modified by Gustavo Bordoni on 21-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by Gustavo Bordoni on 22-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 declare(strict_types=1);
@@ -75,11 +75,9 @@ abstract class AbstractMacro implements BuiltinMethodReflection
     /**
      * Macro constructor.
      *
-     * @param string $className
-     * @phpstan-param class-string $className
-     *
-     * @param string   $methodName
-     * @param callable $macro
+     * @param class-string $className
+     * @param string       $methodName
+     * @param callable     $macro
      */
     public function __construct(string $className, string $methodName, $macro)
     {

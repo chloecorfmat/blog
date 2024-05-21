@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * Modified by Gustavo Bordoni on 21-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by Gustavo Bordoni on 22-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 use FakerPress\ThirdParty\Carbon\CarbonInterface;
@@ -57,7 +57,7 @@ $processHoursFunction = function (CarbonInterface $date, string $format) {
  */
 return [
     'year' => ':count рік|:count роки|:count років',
-    'y' => ':countр',
+    'y' => ':countр|:countрр|:countрр',
     'a_year' => '{1}рік|:count рік|:count роки|:count років',
     'month' => ':count місяць|:count місяці|:count місяців',
     'm' => ':countм',

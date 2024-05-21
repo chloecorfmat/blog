@@ -8,14 +8,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * Modified by Gustavo Bordoni on 21-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by Gustavo Bordoni on 22-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 namespace FakerPress\ThirdParty\Symfony\Component\Translation\Exception;
 
 class IncompleteDsnException extends InvalidArgumentException
 {
-    public function __construct(string $message, string $dsn = null, \Throwable $previous = null)
+    public function __construct(string $message, ?string $dsn = null, ?\Throwable $previous = null)
     {
         if ($dsn) {
             $message = sprintf('Invalid "%s" provider DSN: ', $dsn).$message;

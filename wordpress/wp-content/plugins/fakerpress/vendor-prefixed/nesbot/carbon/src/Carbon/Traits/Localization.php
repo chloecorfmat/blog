@@ -8,7 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  *
- * Modified by Gustavo Bordoni on 21-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
+ * Modified by Gustavo Bordoni on 22-April-2024 using {@see https://github.com/BrianHenryIE/strauss}.
  */
 
 namespace FakerPress\ThirdParty\Carbon\Traits;
@@ -25,6 +25,7 @@ use FakerPress\ThirdParty\Symfony\Component\Translation\TranslatorInterface;
 use FakerPress\ThirdParty\Symfony\Contracts\Translation\LocaleAwareInterface;
 use FakerPress\ThirdParty\Symfony\Contracts\Translation\TranslatorInterface as ContractsTranslatorInterface;
 
+// @codeCoverageIgnoreStart
 if (interface_exists('FakerPress\\ThirdParty\\Symfony\\Contracts\\Translation\\TranslatorInterface') &&
     !interface_exists('FakerPress\\ThirdParty\\Symfony\\Component\\Translation\\TranslatorInterface')
 ) {
@@ -33,6 +34,7 @@ if (interface_exists('FakerPress\\ThirdParty\\Symfony\\Contracts\\Translation\\T
         'FakerPress\\ThirdParty\\Symfony\\Component\\Translation\\TranslatorInterface'
     );
 }
+// @codeCoverageIgnoreEnd
 
 /**
  * Trait Localization.
