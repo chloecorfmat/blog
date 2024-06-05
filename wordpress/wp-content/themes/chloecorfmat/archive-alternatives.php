@@ -63,7 +63,6 @@
                         $next = get_next_posts_link( 'Page suivante' );
                         $classes = '';
 
-
                         if (empty($previous) && !empty($next)) {
                             $classes = 'btns-container pagination pagination--end';
                         }
