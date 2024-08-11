@@ -20,6 +20,13 @@ function chloecorfmat_enqueue_scripts() {
         array(),
         '1.0'
     );
+
+    wp_enqueue_style(
+        'chloecorfmat',
+        'https://unpkg.com/browse/highlightjs@9.16.2/styles/a11y-dark.css',
+        array(),
+        '1.0'
+    );
 }
 add_action( 'wp_enqueue_scripts', 'chloecorfmat_enqueue_scripts' );
 
@@ -130,6 +137,8 @@ function chloecorfmat_allowed_block( $allowed_block_types, $post ) {
     return [
         'acf/block-chloecorfmat-text',
         'acf/block-chloecorfmat-image',
+        'acf/block-chloecorfmat-code',
+        'acf/block-chloecorfmat-callout',
     ];
 }
 add_filter( 'allowed_block_types_all', 'chloecorfmat_allowed_block', 10, 2 );
@@ -187,6 +196,36 @@ function chloecorfmat_register_acf_block_types() {
         'render_template'   => 'blocks/image.php',
         'category'          => 'chloecorfmat-articles',
         'icon'              => 'format-image',
+        'enqueue_assets'    => function() {
+            wp_enqueue_style(
+                'chloecorfmat-blocks',
+                get_template_directory_uri() . '/assets/main.css'
+            );
+        }
+    ) );
+
+    acf_register_block_type( array(
+        'name'              => 'block_chloecorfmat_code',
+        'title'             => 'Bloc code',
+        'description'       => "Afficher du code",
+        'render_template'   => 'blocks/code.php',
+        'category'          => 'chloecorfmat-articles',
+        'icon'              => 'editor-code',
+        'enqueue_assets'    => function() {
+            wp_enqueue_style(
+                'chloecorfmat-blocks',
+                get_template_directory_uri() . '/assets/main.css'
+            );
+        }
+    ) );
+
+    acf_register_block_type( array(
+        'name'              => 'block_chloecorfmat_callout',
+        'title'             => 'Bloc callout',
+        'description'       => "Afficher une information importante",
+        'render_template'   => 'blocks/callout.php',
+        'category'          => 'chloecorfmat-articles',
+        'icon'              => 'editor-code',
         'enqueue_assets'    => function() {
             wp_enqueue_style(
                 'chloecorfmat-blocks',
