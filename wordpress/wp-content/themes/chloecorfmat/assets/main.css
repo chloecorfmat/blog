@@ -1429,7 +1429,7 @@ code.hljs {
   width: 100%;
 }
 .front .gutenberg__block {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 .front .gutenberg__title {
   text-align: left;
@@ -2276,7 +2276,7 @@ code.hljs {
   font-weight: 700;
 }
 .gutenberg__block {
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 .gutenberg__title {
   text-align: left;
