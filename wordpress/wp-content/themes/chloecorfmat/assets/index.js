@@ -51334,7 +51334,6 @@ var lib = hljs;
 const HighlightJS = /* @__PURE__ */ getDefaultExportFromCjs(lib);
 document.addEventListener("DOMContentLoaded", function() {
   HighlightJS.highlightAll();
-  console.log("slip");
 });
 class Checkbox {
   constructor(domNode) {

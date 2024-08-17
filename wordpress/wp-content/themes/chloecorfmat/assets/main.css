@@ -1462,6 +1462,7 @@ code.hljs {
 .front .block-code pre {
   padding-top: 0;
   margin-top: 0;
+  white-space: pre-wrap;
 }
 @media (min-width: 1400px) {
   .front .block-code__filename {
@@ -2309,6 +2310,7 @@ code.hljs {
 .block-code pre {
   padding-top: 0;
   margin-top: 0;
+  white-space: pre-wrap;
 }
 @media (min-width: 1400px) {
   .block-code__filename {
